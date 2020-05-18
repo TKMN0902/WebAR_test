@@ -12,15 +12,9 @@
 
 	<title>WebAR test</title>
 	
-	<style>
-		video{
-			border: 1px solid gray;
-		}
-	</style>
-
-</head>
+	</head>
 <body style='margin: 0px; overflow: hidden;'>
-	<!--<canvas id="myCanvas"></canvas>-->
+	<!--<canvas id="myCanvas"></canvas>
 
 	<video id="camera" width="300" height="200"></video>
 	<script>
@@ -29,11 +23,7 @@
 
             const constraints = {
                 audio: false,
-                video: {
-                    width: 300,
-                    height: 200,
-                    facingMode: "user"   // フロントカメラを利用する
-                }
+                video: true
             };
 
             navigator.mediaDevices.getUserMedia(constraints)
@@ -47,10 +37,10 @@
                     console.log(err.name + ": " + err.message);
                 });
         };
-	</script>
+	</script>-->
 
 	<p>Hello, World!</p>
-	<a-scene embedded arjs="debugUIEnabled:false;">
+	<a-scene embedded arjs="debugUIEnabled:false; sourceType: webcam;">
 
 		<!-- マーカーを登録（デフォルトで設定されている「hiro」マーカー） -->
 		<a-marker preset="hiro">
