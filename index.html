@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<!-- three.jsを読み込む -->
+	<!--<script src="three.js"></script>
+	<!-- index.jsを読み込む -->
+	<!--<script src="index.js"></script>-->
+	<meta name="viewport" content="width=device-width, initial-scale = 1">
+	<script src="aframe-ar.js"></script>
+	<script src="aframe-master.min.js"></script>
+	
+</head>
+<body style='margin: 0px; overflow: hidden;'>
+	<!--<canvas id="myCanvas"></canvas>-->
+	<a-scene embedded arjs="debugUIEnabled:false;">
+
+		<!-- マーカーを登録（デフォルトで設定されている「hiro」マーカー） -->
+		<a-marker preset="hiro">
+			<!-- マーカーの場所に立方体を置く -->
+			<a-box position="-2 0.5 0" wireframe="true"></a-box>
+		</a-marker>
+
+		<a-entity camera
+				  cursor-visible="true"
+				  cursor-scale="2"
+				  cursor-color="#ff0000"
+				  cursor-opacity="0.5"></a-entity>
+
+	</a-scene>
+</body>
+</html>
