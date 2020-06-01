@@ -1,44 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<!-- three.jsを読み込む 
+	<!-- three.jsを読み込む-->
 	<script src="three.js"></script>
-	<!-- index.jsを読み込む 
-	<script src="index.js"></script>-->
-	<script src="aframe-master.min.js"></script>
-	<script src="aframe-ar.js"></script>
+	<!-- index.jsを読み込む-->
+	<script src="index.js"></script>
 
-	<title>WebAR test</title>
+	<title>WebAR index</title>
 
 </head>
 <body style='margin: 0px; overflow: hidden;'>
 
-	<p>Hello, World!</p>
-	<a-scene embedded arjs="debugUIEnabled:false;">
-
-		<!-- マーカーを登録（デフォルトで設定されている「hiro」マーカー） -->
-		<a-marker preset="hiro">
-			<!-- マーカーの場所に立方体を置く -->
-			<a-box width="2" color="ff00ff">
-				<a-animation
-					attribute="rotation"
-					from="0 0 0"
-					to="0 180 0"
-					direction="alternate"
-					dur="10000"
-					repeat="indefinite"
-					easing="ease">
-				</a-animation>
-			</a-box>
-		</a-marker>
-
-		<a-entity camera
-				  cursor-visible="true"
-				  cursor-scale="2"
-				  cursor-color="#ff0000"
-				  cursor-opacity="0.5"></a-entity>
-
-	</a-scene>
+	<a href="AR.html">Hello, World!</a>
+	<canvas id="myCanvas"></canvas>
 </body>
 </html >

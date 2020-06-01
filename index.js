@@ -53,12 +53,15 @@ function init() {
 	function tick() {
 		timer++;
 		requestAnimationFrame(tick);
-		if (timer % 100 > 50) {
+		/*if (timer % 100 > 50) {
 			box.rotation.x += 0.01;
 		}
 		else {
 			box.rotation.y += 0.01;
-		}
+		}*/
+		camera.position.x = 1000 * Math.sin(timer * Math.PI / 180);
+		camera.position.z = 1000 * Math.cos(timer * Math.PI / 180);
+		camera.lookAt(new THREE.Vector3(0, 0, 0));
 		renderer.render(scene, camera);
 	}
 }
