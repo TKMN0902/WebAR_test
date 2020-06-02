@@ -27,15 +27,23 @@ function init() {
 
 	// new THREE.BoxGeometry(幅, 高さ, 奥行き)
 	const geometry = new THREE.BoxGeometry(500, 500, 500);
+	const geometry2 = new THREE.SphereGeometry(300, 30, 30);
 
 	const material = new THREE.MeshStandardMaterial({
 		color: 0x0000ff
 	});
+	const loader = new THREE.TextureLoader();
+	const texture = loader.load('/imgs/earthmap1k.jpg');
+	const material2 = new THREE.MeshStandardMaterial({
+		map: texture
+	});
 
 	// new THREE.Mesh(ジオメトリ,マテリアル)
 	const box = new THREE.Mesh(geometry, material);
+	const head = new THREE.Mesh(geometry2, material2);
 	// シーンに追加
-	scene.add(box);
+	//scene.add(box);
+	scene.add(head);
 
 	// new THREE.DirectionalLight(色)
 	const light = new THREE.DirectionalLight(0xffffff);
