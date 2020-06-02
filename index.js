@@ -33,7 +33,7 @@ function init() {
 		color: 0x0000ff
 	});
 	const loader = new THREE.TextureLoader();
-	const texture = loader.load('/imgs/earthmap1k.jpg');
+	const texture = loader.load('/imgs/marusohead.png');
 	const material2 = new THREE.MeshStandardMaterial({
 		map: texture
 	});
