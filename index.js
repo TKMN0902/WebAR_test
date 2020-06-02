@@ -23,7 +23,7 @@ function init() {
 		1,
 		10000
 	);
-	camera.position.set(0, 0, +1000);
+	camera.position.set(0, 0, +2000);
 
 	// new THREE.BoxGeometry(幅, 高さ, 奥行き)
 	const geometry = new THREE.BoxGeometry(500, 500, 500);
@@ -48,14 +48,16 @@ function init() {
 	// new THREE.DirectionalLight(色)
 	const light = new THREE.DirectionalLight(0xffffff);
 	const light2 = new THREE.DirectionalLight(0xffffff);
+	const light3 = new THREE.AmbientLight(0xffffff);
 	light.intensity = 2; // 光の強さを倍に
 
 	// ライトの位置を変更
 	light.position.set(1, 1, 1);
 	light2.position.set(-1, -1, -1);
 	// シーンに追加
-	scene.add(light);
-	scene.add(light2);
+	/*scene.add(light);
+	scene.add(light2);*/
+	scene.add(light3);
 
 	tick();
 
@@ -70,8 +72,8 @@ function init() {
 		else {
 			box.rotation.y += 0.01;
 		}*/
-		camera.position.x = 1000 * Math.sin(timer * Math.PI / 180);
-		camera.position.z = 1000 * Math.cos(timer * Math.PI / 180);
+		camera.position.x = 2000 * Math.sin(timer * Math.PI / 180);
+		camera.position.z = 2000 * Math.cos(timer * Math.PI / 180);
 		camera.lookAt(new THREE.Vector3(0, 0, 0));
 		renderer.render(scene, camera);
 	}
