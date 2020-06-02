@@ -33,7 +33,7 @@ function init() {
 		color: 0x0000ff
 	});
 	const loader = new THREE.TextureLoader();
-	const texture = loader.load('/imgs/test.png');
+	const texture = loader.load('/imgs/marusohead.png');
 	const material2 = new THREE.MeshStandardMaterial({
 		map: texture
 	});
@@ -47,12 +47,15 @@ function init() {
 
 	// new THREE.DirectionalLight(色)
 	const light = new THREE.DirectionalLight(0xffffff);
+	const light2 = new THREE.DirectionalLight(0xffffff);
 	light.intensity = 2; // 光の強さを倍に
 
 	// ライトの位置を変更
 	light.position.set(1, 1, 1);
+	light2.position.set(-1, -1, -1);
 	// シーンに追加
 	scene.add(light);
+	scene.add(light2);
 
 	tick();
 
