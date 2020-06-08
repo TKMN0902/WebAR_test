@@ -24,6 +24,7 @@ function init() {
 		10000
 	);
 	camera.position.set(0, 0, +2000);
+	const controls = new THREE.OrbitControls(camera);
 
 	// new THREE.BoxGeometry(幅, 高さ, 奥行き)
 	const geometry = new THREE.BoxGeometry(500, 500, 500);
@@ -35,7 +36,8 @@ function init() {
 	const loader = new THREE.TextureLoader();
 	const texture = loader.load('/imgs/marusohead.jpg');
 	const material2 = new THREE.MeshStandardMaterial({
-		map: texture
+		//map: texture
+		color: 0x00ff00
 	});
 
 	// new THREE.Mesh(ジオメトリ,マテリアル)
@@ -55,25 +57,34 @@ function init() {
 	light.position.set(1, 1, 1);
 	light2.position.set(-1, -1, -1);
 	// シーンに追加
-	/*scene.add(light);
-	scene.add(light2);*/
-	scene.add(light3);
+	scene.add(light);
+	//scene.add(light2);
+	//scene.add(light3);
 
 	tick();
 
 	var timer = 0;
+	var rot = 0;
+	var mouseX = 0;
+
+	document.addEventListener("mousemove", (event) => {
+		mouseX = event.pageX;
+	});
 
 	function tick() {
 		timer++;
 		requestAnimationFrame(tick);
+		const targetRot = (mouseX / window.innerWidth) * 360 - 180;
+		rot += (targetRot - rot) * 0.1;
+		const radian = rot * Math.PI / 180;
 		/*if (timer % 100 > 50) {
 			box.rotation.x += 0.01;
 		}
 		else {
 			box.rotation.y += 0.01;
 		}*/
-		camera.position.x = 2000 * Math.sin(timer * Math.PI / 180);
-		camera.position.z = 2000 * Math.cos(timer * Math.PI / 180);
+		camera.position.x = 2000 * Math.sin(radian);
+		camera.position.z = 2000 * Math.cos(radian);
 		camera.lookAt(new THREE.Vector3(0, 0, 0));
 		renderer.render(scene, camera);
 	}
