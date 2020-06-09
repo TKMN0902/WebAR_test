@@ -34,9 +34,9 @@ function init() {
 	});
 	const loader = new THREE.TextureLoader();
 	const texture = loader.load('/imgs/marusohead.jpg');
-	const material2 = new THREE.MeshStandardMaterial({
-		//map: texture
-		color: 0x00ff00
+	const material2 = new THREE.MeshToonMaterial({
+		map: texture
+		//color: 0x00ff00
 	});
 
 	// new THREE.Mesh(ジオメトリ,マテリアル)
