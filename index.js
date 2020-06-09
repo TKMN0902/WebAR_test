@@ -44,7 +44,7 @@ function init() {
 	const head = new THREE.Mesh(geometry2, material2);
 	// シーンに追加
 	//scene.add(box);
-	scene.add(head);
+	//scene.add(head);
 
 	const bodymaterial = new THREE.SpriteMaterial({
 		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
