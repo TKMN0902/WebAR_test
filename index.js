@@ -46,19 +46,26 @@ function init() {
 	//scene.add(box);
 	scene.add(head);
 
+	const bodymaterial = new THREE.SpriteMaterial({
+		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
+	});
+	const sprite = new THREE.Sprite(bodymaterial);
+	scene.add(sprite);
+
 	// new THREE.DirectionalLight(色)
 	const light = new THREE.DirectionalLight(0xffffff);
 	const light2 = new THREE.DirectionalLight(0xffffff);
 	const light3 = new THREE.AmbientLight(0xffffff);
-	light.intensity = 2; // 光の強さを倍に
+	//light.intensity = 2; // 光の強さを倍に
+	light3.intensity = 0.5;
 
 	// ライトの位置を変更
-	light.position.set(1, 1, 1);
+	light.position.set(0, 1, 1);
 	light2.position.set(-1, -1, -1);
 	// シーンに追加
 	scene.add(light);
 	//scene.add(light2);
-	//scene.add(light3);
+	scene.add(light3);
 
 	tick();
 
