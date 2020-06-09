@@ -56,6 +56,7 @@ function init() {
 
 	function tick() {
 		requestAnimationFrame(tick);
+		controls.update();
 		renderer.render(scene, camera);
 	}
 }

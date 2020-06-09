@@ -24,7 +24,6 @@ function init() {
 		10000
 	);
 	camera.position.set(0, 0, +2000);
-	const controls = new THREE.OrbitControls(camera);
 
 	// new THREE.BoxGeometry(幅, 高さ, 奥行き)
 	const geometry = new THREE.BoxGeometry(500, 500, 500);
