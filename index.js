@@ -14,6 +14,9 @@ function init() {
 
 	renderer.setSize(width, height);
 
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext('2d');
+
 	const scene = new THREE.Scene();
 
 	// new THREE.PerspectiveCamera(画角, アスペクト比, 描画開始距離, 描画終了距離)
@@ -23,7 +26,7 @@ function init() {
 		1,
 		10000
 	);
-	camera.position.set(0, 0, +2000);
+	camera.position.set(0, 0, 1000);
 
 	// new THREE.BoxGeometry(幅, 高さ, 奥行き)
 	const geometry = new THREE.BoxGeometry(500, 500, 500);
@@ -43,7 +46,7 @@ function init() {
 	const box = new THREE.Mesh(geometry, material);
 	const head = new THREE.Mesh(geometry2, material2);
 	// シーンに追加
-	//scene.add(box);
+	scene.add(box);
 	//scene.add(head);
 
 	const bodymaterial = new THREE.SpriteMaterial({
@@ -51,6 +54,10 @@ function init() {
 	});
 	const sprite = new THREE.Sprite(bodymaterial);
 	scene.add(sprite);
+
+	const plane = new THREE.GridHelper(1000, 10, 0x888888, 0x888888);
+	plane.position.y = -500;
+	scene.add(plane);
 
 	// new THREE.DirectionalLight(色)
 	const light = new THREE.DirectionalLight(0xffffff);
@@ -69,29 +76,35 @@ function init() {
 
 	tick();
 
-	var timer = 0;
-	var rot = 0;
+	var rotX = 0;
+	var rotY = 0;
 	var mouseX = 0;
+	var mouseY = 0;
 
 	document.addEventListener("mousemove", (event) => {
 		mouseX = event.pageX;
+		mouseY = event.pageY;
 	});
 
 	function tick() {
-		timer++;
 		requestAnimationFrame(tick);
-		const targetRot = (mouseX / window.innerWidth) * 360 - 180;
-		rot += (targetRot - rot) * 0.1;
-		const radian = rot * Math.PI / 180;
-		/*if (timer % 100 > 50) {
-			box.rotation.x += 0.01;
+		const targetRotX = (mouseX / window.innerWidth) * 360 - 180;
+		const targetRotY = 90 - (mouseY / window.innerHeight) * 180;
+		rotX += (targetRotX - rotX) * 0.1;
+		rotY += (targetRotY - rotY) * 0.1;
+		const radianX = rotX * Math.PI / 180;
+		const radianY = rotY * Math.PI / 180;
+		camera.position.x = 1000 * Math.sin(radianX);
+		camera.position.y = 1000 * Math.sin(radianY);
+		if ((Math.sin(radianX) ** 2) + (Math.sin(radianY) ** 2) < 1) {
+			camera.position.z = 1000 * Math.sqrt(1 - (Math.sin(radianX) ** 2) - (Math.sin(radianY) ** 2));
 		}
 		else {
-			box.rotation.y += 0.01;
-		}*/
-		camera.position.x = 2000 * Math.sin(radian);
-		camera.position.z = 2000 * Math.cos(radian);
+			camera.position.z = -1000 * Math.sqrt((Math.sin(radianX) ** 2) + (Math.sin(radianY) ** 2) - 1);
+		}
 		camera.lookAt(new THREE.Vector3(0, 0, 0));
 		renderer.render(scene, camera);
+		document.getElementById('edit_area').textContent = Math.sin(radianX) ** 2;
+		document.getElementById('edit_area2').textContent = Math.sin(radianY) ** 2;
 	}
 }
