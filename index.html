@@ -3,18 +3,31 @@
 <head>
 	<meta charset="UTF-8" />
 	<!-- three.jsを読み込む-->
-	<script src="three.js"></script>
+	<script src="js/three.js"></script>
 	<!-- index.jsを読み込む-->
-	<script src="index.js"></script>
+	<script src="js/index.js"></script>
 
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<title>WebAR index</title>
 
 </head>
-<body style='margin: 0px; overflow: hidden;'>
-
-	<canvas id="myCanvas"></canvas>
-	<p id="edit_area">aa</p>
-	<p id="edit_area2">aa</p>
-	<p><a href="AR.html">AR_test </a><a href="Orbit.html">Control_test</a></p>
+<body>
+	<div id="header">
+		<h1>回る立方体</h1>
+		<div id="links">
+			<ul id="links_body">
+				<li><a href="AR.html">AR_test</a></li>
+				<li><a href="Orbit.html">Control_test</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="canvas_area">
+		<canvas id="myCanvas"></canvas>
+	</div>
+	<div id="sentences">
+		<p id="edit_area">aa</p>
+		<p id="edit_area2">aa</p>
+	</div>
+	<div id="footer">テスト</div>
 </body>
 </html >

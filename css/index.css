@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0; /*全要素のマージン・パディングをリセット*/
+    line-height: 1.5; /*全要素の行の高さを1.5倍にする*/
+    color: #333333; /*文字色*/
+}
+div#header{
+    /*width:1320px;*/
+    background-color:lightgray;
+}
+div#links{
+    float:left;
+}
+li {
+    list-style-type: none;
+}
+#links a {
+    width: 200px;
+    height: 35px;
+    padding: 15px 0px 0px 0px;
+    border: solid 5px mediumseagreen;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: darkslategray;
+}
+#links a:hover{
+    color: lightskyblue;
+}
+canvas{
+    float:left;
+}
+div#sentences{
+    clear:both;
+}
+div#footer{
+    height:42px; /*width:1320px;*/
+    text-align:center;
+    font-family:serif;
+    background-color:lightgray;
+}
