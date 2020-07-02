@@ -18,6 +18,7 @@ function init() {
 	var context = canvas.getContext('2d');
 
 	const scene = new THREE.Scene();
+	const maruso = new THREE.Group();
 
 	// new THREE.PerspectiveCamera(画角, アスペクト比, 描画開始距離, 描画終了距離)
 	const camera = new THREE.PerspectiveCamera(
@@ -46,14 +47,15 @@ function init() {
 	const box = new THREE.Mesh(geometry, material);
 	const head = new THREE.Mesh(geometry2, material2);
 	// シーンに追加
-	scene.add(box);
-	//scene.add(head);
+	//scene.add(box);
 
 	const bodymaterial = new THREE.SpriteMaterial({
 		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
 	});
-	const sprite = new THREE.Sprite(bodymaterial);
-	scene.add(sprite);
+	const body = new THREE.Sprite(bodymaterial);
+	maruso.add(head);
+	maruso.add(body);
+	scene.add(maruso);
 
 	const plane = new THREE.GridHelper(1000, 10, 0x888888, 0x888888);
 	plane.position.y = -500;
