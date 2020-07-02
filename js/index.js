@@ -50,7 +50,7 @@ function init() {
 	//scene.add(box);
 
 	const bodymaterial = new THREE.SpriteMaterial({
-		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
+		map: new THREE.TextureLoader().load('/imgs/marusobody.jpg')
 	});
 	const body = new THREE.Sprite(bodymaterial);
 	//maruso.add(head);
