@@ -32,7 +32,7 @@ function init() {
 	// new THREE.BoxGeometry(•, ‚‚³, ‰œs‚«)
 	const geometry = new THREE.BoxGeometry(500, 500, 500);
 
-	const material = new THREE.MeshBasicMaterial({
+	const material = new THREE.MeshStandardMaterial({
 		color: 0x0000ff
 	});
 
@@ -52,7 +52,7 @@ function init() {
 	light2.position.set(-1, -1, -1);
 	// ƒV[ƒ“‚É’Ç‰Á
 	scene.add(light);
-	//scene.add(light2);
+	scene.add(light2);
 	//scene.add(light3);
 	document.getElementById('edit_area').textContent = "3";
 
