@@ -56,7 +56,7 @@ function init() {
 	});
 	const body = new THREE.Sprite(bodymaterial);
 	body.position.set(0, 0, 0);
-	body.scale.set(10, 10, 10);
+	body.scale.set(1000, 1000, 1000);
 	//maruso.add(head);
 	maruso.add(body);
 	scene.add(maruso);
