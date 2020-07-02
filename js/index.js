@@ -14,6 +14,8 @@ function init() {
 
 	renderer.setSize(width, height);
 
+	renderer.setClearColor(0xf9f9f9, 1.0);
+
 	var canvas = document.getElementById("myCanvas");
 	var context = canvas.getContext('2d');
 
@@ -50,9 +52,13 @@ function init() {
 	//scene.add(box);
 
 	const bodymaterial = new THREE.SpriteMaterial({
-		map: new THREE.TextureLoader().load('/imgs/marusobody.jpg')
+		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
 	});
 	const body = new THREE.Sprite(bodymaterial);
+	body.position.x = 0;
+	body.position.y = 0;
+	body.position.z = 0;
+	body.scale.set(10, 10, 10);
 	//maruso.add(head);
 	maruso.add(body);
 	scene.add(maruso);
