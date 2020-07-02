@@ -55,8 +55,8 @@ function init() {
 		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
 	});
 	const body = new THREE.Sprite(bodymaterial);
-	body.position.set(0, -300, -100);
-	body.scale.set(750, 750, 750);
+	body.position.set(0, -300, -150);
+	body.scale.set(800, 800, 800);
 	maruso.add(head);
 	maruso.add(body);
 	scene.add(maruso);
@@ -94,7 +94,7 @@ function init() {
 
 	function tick() {
 		requestAnimationFrame(tick);
-		const targetRotX = (mouseX / window.innerWidth) * 360 - 180;
+		const targetRotX = (mouseX / window.innerWidth) * 360 - 90;
 		const targetRotY = 90 - (mouseY / window.innerHeight) * 180;
 		rotX += (targetRotX - rotX) * 0.1;
 		rotY += (targetRotY - rotY) * 0.1;
