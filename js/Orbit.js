@@ -25,8 +25,8 @@ function init() {
 	);
 	camera.position.set(0, 0, +2000);
 	document.getElementById('edit_area').textContent = "1";
-	const controls = new THREE.OrbitControls(camera);
-	controls.autoRotate = true;
+	var controls = new THREE.OrbitControls(camera, renderer.domElement);
+	//controls.autoRotate = true;
 	document.getElementById('edit_area').textContent = "2";
 
 	// new THREE.BoxGeometry(ïù, çÇÇ≥, âúçsÇ´)
@@ -60,7 +60,7 @@ function init() {
 
 	function tick() {
 		requestAnimationFrame(tick);
-		controls.update();
+		//controls.update();
 		renderer.render(scene, camera);
 	}
 }

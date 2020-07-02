@@ -1,0 +1,3 @@
+function funca() {
+    alert("Hello!");
+}

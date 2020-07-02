@@ -3,8 +3,8 @@ window.addEventListener("DOMContentLoaded", init);
 function init() {
 	// ここに処理を追加していきます
 
-	const width = 960;
-	const height = 540;
+	const width = 720;
+	const height = 405;
 
 	const renderer = new THREE.WebGLRenderer({
 		canvas: document.querySelector("#myCanvas")
@@ -94,27 +94,12 @@ function init() {
 		rotY += (targetRotY - rotY) * 0.1;
 		const radianX = rotX * Math.PI / 180;
 		const radianY = rotY * Math.PI / 180;
-		camera.position.x = 1000 * Math.sin(radianX);
+		camera.position.x = 1000 * Math.sin(radianX) * Math.cos(radianY);
 		camera.position.y = 1000 * Math.sin(radianY);
-		if ((Math.sin(radianX) ** 2) + (Math.sin(radianY) ** 2) < 1) {
-			if (Math.cos(radianX) > 0) {
-				camera.position.z = 1000 * Math.sqrt(1 - (Math.sin(radianX) ** 2) - (Math.sin(radianY) ** 2));
-			}
-			else {
-				camera.position.z = -1000 * Math.sqrt(1 - (Math.sin(radianX) ** 2) - (Math.sin(radianY) ** 2));
-			}
-		}
-		else {
-			if (Math.cos(radianX) > 0) {
-				camera.position.z = 1000 * Math.sqrt((Math.sin(radianX) ** 2) + (Math.sin(radianY) ** 2) - 1);
-			}
-			else {
-				camera.position.z = -1000 * Math.sqrt((Math.sin(radianX) ** 2) + (Math.sin(radianY) ** 2) - 1);
-			}
-		}
+		camera.position.z = 1000 * Math.cos(radianX) * Math.cos(radianY);
 		camera.lookAt(new THREE.Vector3(0, 0, 0));
 		renderer.render(scene, camera);
-		document.getElementById('edit_area').textContent = Math.sin(radianX) ** 2;
-		document.getElementById('edit_area2').textContent = Math.sin(radianY) ** 2;
+		document.getElementById('edit_area').textContent = targetRotX;
+		document.getElementById('edit_area2').textContent = targetRotY;
 	}
 }
