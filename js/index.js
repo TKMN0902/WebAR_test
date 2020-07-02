@@ -53,7 +53,7 @@ function init() {
 		map: new THREE.TextureLoader().load('/imgs/marusobody.png')
 	});
 	const body = new THREE.Sprite(bodymaterial);
-	maruso.add(head);
+	//maruso.add(head);
 	maruso.add(body);
 	scene.add(maruso);
 
